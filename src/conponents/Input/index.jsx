@@ -1,11 +1,16 @@
 import { useState } from 'react'
+import useOnEnter from '../../hooks/useOnEnter'
 
-const Input = (props) => {
-  const {onSubmit} = props
+const Input = () => {
+ 
   const [newTodo, setNewTodo] = useState('')
-  const atSubmit = () => {
-   
-  }
+  const onAddTodo = useOnEnter(()=> {
+    const todo = newTodo.trim()
+    if(todo !== ''){
+      console.log(todo)
+      setNewTodo('')
+    }
+  }, [newTodo])
 
   return (
     <>
@@ -17,7 +22,7 @@ const Input = (props) => {
           type="text"
           value={newTodo}
           onChange={(e)=> setNewTodo(e.target.value)}
-          
+          onKeyPress={onAddTodo}
           className="new-todo" 
           placeholder="需要做什麼？"
           autoFocus/>
