@@ -1,7 +1,8 @@
 // import { useState} from 'react'
+import TodoItem from '../TodoItem'
 
-const TodoList = ()=> {
-
+const TodoList = (props)=> {
+const {list} = props
   return(
     <>
       <section className='main'>
@@ -10,32 +11,12 @@ const TodoList = ()=> {
 
           <ul className="todo-list">
 
-            <li className='todo'>
-              <div className="view">
-                <input type="checkbox" className='toggle'/>
-                <label htmlFor="">學習 React Template</label>
-                <button className="destroy"></button>
-              </div>
-              <input type="text" className="edit" />
-            </li>
-
-            <li className="todo">
-              <div className="view">
-                <input type="checkbox" className="toggle" />
-                <label htmlFor="">學習在 React Template 中進行條件判斷</label>
-                <button className="destroy"></button>
-              </div>
-              <input type="text" className="edit" />
-            </li>
-
-            <li className="todo">
-              <div className="view">
-                <input type="checkbox" className="toggle" />
-                <label htmlFor="">學習在 React Template 中使用迴圈 </label>
-                <button className="destroy"></button>
-              </div>
-              <input type="text" className="edit" />
-            </li>
+            {list.map((todo) => (
+              <TodoItem 
+              text={todo.text}
+              key={todo.id}
+              id={todo.id}/>
+            ))}
 
           </ul>
         </section>
