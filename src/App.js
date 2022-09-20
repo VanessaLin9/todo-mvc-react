@@ -1,17 +1,24 @@
 import "todomvc-app-css/index.css";
-import Input from './conponents/Input'
-import TodoList from './conponents/TodoList'
+import {HashRouter,Routes, Route} from "react-router-dom";
+import React from 'react'
+
+import Input from './components/Input'
+import TodoList from './components/TodoList/index'
 
 
 
 function App() {
   return (
-    <div id='app'>
-      <section className='todoapp'>
+    <HashRouter>
+      <React.Fragment>
+        <div className='todoapp'>
         <Input />
-        <TodoList/>
-      </section>
-    </div>
+        <Routes>
+          <Route path="/" element={<TodoList/>}/>
+        </Routes>
+        </div>
+      </React.Fragment>
+    </HashRouter>
   );
 }
 
