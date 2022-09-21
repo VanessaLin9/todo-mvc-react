@@ -1,8 +1,8 @@
-// import { useState} from 'react'
 import TodoItem from '../TodoItem'
 
+
 const TodoList = (props)=> {
-const {list} = props
+  const {todos, onDeleTodos} = props
   return(
     <>
       <section className='main'>
@@ -11,11 +11,12 @@ const {list} = props
 
           <ul className="todo-list">
 
-            {list.map((todo) => (
+            {todos.map((todo) => (
               <TodoItem 
               text={todo.text}
               key={todo.id}
-              id={todo.id}/>
+              id={todo.id}
+              onDeleTodos={onDeleTodos}/>
             ))}
 
           </ul>

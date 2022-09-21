@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import useOnEnter from '../../hooks/useOnEnter'
 
-const Input = () => {
- 
+
+const Input = (props) => {
+  const {onAddTodos} = props
   const [newTodo, setNewTodo] = useState('')
   const onAddTodo = useOnEnter(()=> {
     const todo = newTodo.trim()
     if(todo !== ''){
-      console.log(todo)
+      onAddTodos(todo)
       setNewTodo('')
     }
   }, [newTodo])
