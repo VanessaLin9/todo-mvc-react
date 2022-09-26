@@ -13,9 +13,8 @@ const TodoList = memo((props)=> {
 
             {todos.map((todo) => (
               <TodoItem 
-              text={todo.text}
               key={todo.id}
-              id={todo.id}
+              todo={todo}
               onToggleTodos={onToggleTodos}
               onDeleTodos={onDeleTodos}/>
             ))}
