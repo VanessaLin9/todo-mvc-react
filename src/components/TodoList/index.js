@@ -1,8 +1,8 @@
 import TodoItem from '../TodoItem'
+import {memo} from 'react'
 
-
-const TodoList = (props)=> {
-  const {todos, onDeleTodos} = props
+const TodoList = memo((props)=> {
+  const {todos, onDeleTodos, onToggleTodos} = props
   return(
     <>
       <section className='main'>
@@ -16,6 +16,7 @@ const TodoList = (props)=> {
               text={todo.text}
               key={todo.id}
               id={todo.id}
+              onToggleTodos={onToggleTodos}
               onDeleTodos={onDeleTodos}/>
             ))}
 
@@ -41,6 +42,6 @@ const TodoList = (props)=> {
         </footer>
     </>
   )
-}
+})
 
 export default TodoList

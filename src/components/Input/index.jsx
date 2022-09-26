@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import useOnEnter from '../../hooks/useOnEnter'
 
 
-const Input = (props) => {
+const Input = memo((props) => {
   const {onAddTodos} = props
   const [newTodo, setNewTodo] = useState('')
   const onAddTodo = useOnEnter(()=> {
@@ -29,6 +29,6 @@ const Input = (props) => {
           autoFocus/>
     </>
   )
-}
+})
 
 export default Input
