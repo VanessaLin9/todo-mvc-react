@@ -1,22 +1,20 @@
 import guid from '../utils'
 
-export const initialItems = [{
+
+export const initialItems = () => JSON.parse(localStorage.getItem("todos")) || []
+ 
+export const newTodo = (label) => ({
   id: guid(),
   finished: false,
-  text: 'yoyo'
-}, {
-  id: guid(),
-  finished: false,
-  text: 'Vuuuue'
-}]
+  text: label
+})
+
 
 // export const newTodo = (label) => ({
 //   id: guid(),
 //   finished: false,
 //   text: label
 // })
-
-//  const [state, dispatch] = React.useReducer(reducer, initialItems);
 
 
 
